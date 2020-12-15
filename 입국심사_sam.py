@@ -9,20 +9,13 @@ times = [2,3,10]
 def binarySearch(l, r, n, times):
 
     mid = (l+r)>>1
-    
-    #만약에 사람수n과 times길이가 같으면 가장오래걸리는 시간이 return되어야하낟.
-    # if n==len(times):
-    #     return max(times)
-    
     cnt = 0 #통과한 사람
     #해당 mid시간을 기준으로 몇명이 통과했는지 확인해본다.
     for time in times:
         cnt += mid//time
-    #통과한 사람이 n보다 작으면 이분탐색 다시 수행
-       
+    #통과한 사람이 n보다 작으면 이분탐색 다시 수행       
     if l>r:
-        return l
-    
+        return l    
     if cnt<n:
         return binarySearch(mid+1,r,n,times)
     elif cnt>=n:
